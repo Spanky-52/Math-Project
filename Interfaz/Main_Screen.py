@@ -1,10 +1,14 @@
-
 import tkinter as tk
 from tkinter import messagebox
 
 from Casos.case1.Screen_case_1 import mostrar_caso1
 from Casos.case2.Screen_case_2 import mostrar_caso2
 
+integrantes = [
+    "Integrate 1",
+    "Integrate 2",
+    "Integrate 3"
+]
 
 class MainScreen:
 
@@ -102,13 +106,47 @@ class MainScreen:
 
     def mostrar_integrantes(self):
 
-        messagebox.showinfo(
-            "Integrantes del Equipo",
-            "INTEGRANTES DEL EQUIPO\n\n"
-            "1. Integrante 1\n"
-            "2. Integrante 2\n"
-            "3. Integrante 3"
-        )
+        self.limpiar()
+
+        # Lista de integrantes
+        integrantes = [
+            "Integrate 1",
+            "Integrate 2",
+            "Integrate 3"
+        ]
+
+        tk.Label(
+            self.contenedor,
+            text="INTEGRANTES DEL EQUIPO",
+            font=("Arial", 22, "bold"),
+            bg="#ecf0f1",
+            fg="#2c3e50"
+        ).pack(pady=30)
+
+        # Recorrer la lista de integrantes
+        for integrante in integrantes:
+            tk.Label(
+                self.contenedor,
+                text=integrante,
+                font=("Arial", 15),
+                bg="white",
+                fg="#2c3e50",
+                width=40,
+                pady=12,
+                relief="solid",
+                bd=1
+            ).pack(pady=8)
+
+        # Botón para regresar
+        tk.Button(
+            self.contenedor,
+            text="Volver al Menu Principal",
+            font=("Arial", 11, "bold"),
+            bg="#3498db",
+            fg="white",
+            width=30,
+            command=self.mostrar_menu
+        ).pack(pady=30)
 
     def finalizar(self):
 
