@@ -1,12 +1,21 @@
+
 import math
 import itertools
 import time
 
 
-def combinaciones_formula(n, k):
+def validar_datos(n, k):
 
     if n < 0 or k < 0 or k > n:
-        raise ValueError("Valores de n y k no válidos.")
+        raise ValueError(
+            "Los valores deben cumplir: 0 <= k <= n."
+        )
+
+
+# METODO 1: FORMULA MATEMATICA
+def combinaciones_formula(n, k):
+
+    validar_datos(n, k)
 
     resultado = (
         math.factorial(n) //
@@ -19,10 +28,10 @@ def combinaciones_formula(n, k):
     return resultado
 
 
+# METODO 2: GENERACION DE COMBINACIONES
 def combinaciones_programacion(n, k):
 
-    if n < 0 or k < 0 or k > n:
-        raise ValueError("Valores de n y k no válidos.")
+    validar_datos(n, k)
 
     estudiantes = list(range(1, n + 1))
 
@@ -41,15 +50,17 @@ def combinaciones_programacion(n, k):
     return cantidad, ejemplos
 
 
-# COMPARACION DE METODOS
+# COMPARACION DE LOS DOS METODOS
 def comparar_combinaciones(n, k):
 
+    # METODO MATEMATICO
     inicio = time.perf_counter()
 
     resultado_formula = combinaciones_formula(n, k)
 
     tiempo_formula = time.perf_counter() - inicio
 
+    # METODO DE GENERACION
     inicio = time.perf_counter()
 
     resultado_programacion, equipos = (
@@ -65,3 +76,21 @@ def comparar_combinaciones(n, k):
         "tiempo_formula": tiempo_formula,
         "tiempo_generacion": tiempo_programacion
     }
+
+
+# COMPARACION PARA DIFERENTES VALORES
+def comparar_diferentes_valores(k):
+
+    valores_n = [5, 8, 10, 12, 15]
+
+    resultados = {}
+
+    for n in valores_n:
+
+        if k <= n:
+
+            datos = comparar_combinaciones(n, k)
+
+            resultados[n] = datos
+
+    return resultados

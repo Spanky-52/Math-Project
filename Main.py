@@ -1,5 +1,5 @@
 import tkinter as tk
-from Interfaz.Main_Screen import MainScreen
+from interfaz.Main_Screen import MainScreen
 
 
 def main():
