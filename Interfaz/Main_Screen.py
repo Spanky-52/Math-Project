@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from casos.caso1_sumatoria.vista import mostrar_caso1
-from casos.caso2_combinaciones.vista import mostrar_caso2
+#from Casos.case1
+from Casos.case2.Screen_case_2 import mostrar_caso2
 
 
 class MainScreen:
