@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from casos.caso2_combinaciones.Algoritmos import (
+from Casos.case2.Algoritmos import (
     comparar_combinaciones,
     comparar_diferentes_valores
 )

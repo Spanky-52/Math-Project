@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-from casos.caso1.Algoritmos import (
+from Casos.case1.Algoritmos import (
     comparar_algoritmos,
     ejecutar_pruebas
 )
